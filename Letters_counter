@@ -1,0 +1,26 @@
+from array import *
+count= array('i',[])
+dict={}
+str=input("Please enter a string=")
+l=int(len(str))
+
+def most_frequent(str,l):
+    str=str
+    l=l
+    buf=0
+    for i in range(l):
+        for j in range(l):
+            if str[i] == str[j]:
+                buf += 1
+        count.insert(i, buf)
+        buf = 0
+    for k in range(l):
+        dict.update({str[k]: count[k]})
+
+def output():
+    sort_dict = sorted(dict.items(), key=lambda x: x[1], reverse=True)
+    for i in sort_dict:
+        print(i[0], "=", i[1])
+
+most_frequent(str,l)
+output()
